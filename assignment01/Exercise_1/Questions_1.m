@@ -1,4 +1,5 @@
 clear
+clc
 
 %% a) Reads the image and displays it
 

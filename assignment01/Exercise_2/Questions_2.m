@@ -1,4 +1,6 @@
 clear
+clc
+
 img = imread('cameraman.tif');
 figure
 subplot(1,3,1);
@@ -43,6 +45,6 @@ imshow(uint8(mean(imgs(:,:,1:4),3)));
 title('Average over 4');
 subplot(1,4,4);
 imshow(uint8(mean(imgs(:,:,1:8),3)));
-title('Average over 8)');
+title('Average over 8');
 
 
