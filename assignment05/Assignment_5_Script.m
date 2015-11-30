@@ -74,3 +74,8 @@ title('k = 12');
 % e) Application of k-means to camera stream
 cam = webcamlist;
 cameraloop(cam, 5);
+
+% The initialization of the clusters centroids needs to be deterministic
+% instead of being random. By calculating initial values from majorities 
+% of the image i.e. luminocity or hue, the centroids are pushed into some
+% boundaries.
