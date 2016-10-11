@@ -1,0 +1,7 @@
+function [ simvalue ] = similarity( charact1, charact2 )
+%SIMILARITY Returns a value that indicates similarity of 
+%   Detailed explanation goes here
+
+
+end
+

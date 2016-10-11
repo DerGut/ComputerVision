@@ -1,0 +1,10 @@
+function [ histogram ] = colorchar( img )
+%COLORCHAR Returns a histogram of the color values of img
+%   Detailed explanation goes here
+
+histogram = zeros(1,100);
+imgH = uintimg(:,:,1)*100;
+display(imgH);
+
+end
+

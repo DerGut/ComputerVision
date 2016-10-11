@@ -1,0 +1,12 @@
+function [ bestmatch ] = compare( img )
+%COMPARE Returns the image that is best matched by img
+%   Compares img to all three images stored in the global database and returns
+%   the one that is most similar (= with the lowest value returned by the
+%   function 'similarity')
+global CCHAR1;
+gloa
+cchar = colorchar(rgb2hsv(img));
+sim1 = similarity(cchar, CCHAR1);
+
+end
+

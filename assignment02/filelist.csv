@@ -1,0 +1,6 @@
+"File name";Size;Creator;Date;Name;Description;Path
+assignment02.zip;250706;"Jannik Steinmann";"2015-11-10 14:53:32";assignment02;"Zu 2)
+Anscheinend gibt es 'car.jpg' schon in Matlab, einmal wurde es als uint8(450, 600) 
+Graustufenbild und einmal als uint8(450, 600, 3) rgb-Bild eingelesen. Je nachdem mussten 
+wir die Zeile ""car = rgb2gray(car)"" hinzufügen oder nicht.
+Klappt jetzt!";/assignment02.zip

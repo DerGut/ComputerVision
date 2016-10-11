@@ -1,0 +1,20 @@
+%% define global cell array
+global CELLARRAY
+CELLARRAY = cell(1,3);
+%% store person 1  türkis
+cam = webcam(1);
+img1 = snapshot(cam);
+cchar1 = colorchar(rgb2hsv(img1));
+clear cam;
+CELLARRAY{1,1} = cchar1;
+%% store person 2   orange
+cam = webcam(1);
+img2 = snapshot(cam);
+cchar2 = colorchar(rgb2hsv(img2));
+clear cam;
+%% store person 3  rot
+cam = webcam(1);
+img3 = snapshot(cam);
+cchar3 = colorchar(rgb2hsv(img3));
+clear cam;
+
