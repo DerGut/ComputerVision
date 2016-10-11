@@ -4,7 +4,8 @@ function [ cellarray ] = readtemp( foldername )
 %   folderpath is a string that contains the name of the folder
 %   cellarray is a cell array containing the read templates from the folder
 
-images  = dir([foldername '\*.png']);
+images  = dir([foldername filesep '*.png']);
+images  = [images dir([foldername filesep '*.jpg'])];
 amount = length(images);
 cellarray = cell(1,amount);
 

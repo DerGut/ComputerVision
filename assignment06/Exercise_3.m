@@ -74,27 +74,38 @@ viscircles(centers, radii, 'EdgeColor', 'b');
 
 
 %% 4) Additional knowledge
+figure(4)
 
-[centers, radii] = imfindcircles(sobel, [10 20], ...
-                            'Method', 'TwoStage', ...
-                            'ObjectPolarity', 'bright', ...
-                            'Sensitivity', 0.86, ...
-                            'EdgeThreshold', 0.001);  
+for frame = 1:10
 
-matches = zeros(size(centers));
-dist = pdist(centers);
-for i = 1:size(dist,2)
-    if (dist(i) > 10) && (dist(i) < 30)
-        matches(uint16((i*2/size(centers,1))+1),:) = ...
-            centers(uint16((i*2/size(centers,1))+1),:);
-        
-        matches( uint16( i*2/size(centers,1) ),:) = ...
-            centers(uint16(i*2/size(centers,1)),:);
+    shot = snapshot(cam);
+    [centers, radii] = imfindcircles(shot, [10 20], ...
+                                'Method', 'PhaseCode', ...
+                                'ObjectPolarity', 'bright', ...
+                                'Sensitivity', 0.95, ...
+                                'EdgeThreshold', 0.001);  
+
+%     The distance of two eyes is roughly the width of one eye -
+%     proportions
+    matches = zeros(size(centers));
+    dist = pdist(centers);
+    for i = 1:size(dist,2)
+        if radii( uint16( (i * 2 / size(centers,1) ) + 1),:) ...
+                < dist(i) + 2 ...
+                && radii( uint16( ( i * 2 / size(centers,1) ) + 1),:) ...
+                > dist(i) - 2
+            
+            matches(uint16((i*2/size(centers,1))+1),:) = ...
+                centers(uint16((i*2/size(centers,1))+1),:);
+
+           
+        end
     end
-end
 
-[row, columns] = find(matches);
+    [row, columns] = find(matches);
 
 
-imshow(shot)
-viscircles(matches, radii, 'EdgeColor', 'b');
+    imshow(shot)
+    viscircles(matches, radii, 'EdgeColor', 'b');
+
+end % for frame

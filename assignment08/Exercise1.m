@@ -18,7 +18,7 @@ imshow(cap1);
 figure;
 amount = length(rescap1);
 for i=1:amount
-    subplot(amount,1,i);
+    subplot(1,amount,i);
     letternr = rescap1{i,1};
     position = rescap1{i,2};
     imshow(temps{1,letternr});
@@ -32,7 +32,7 @@ imshow(cap2);
 figure;
 amount = length(rescap2);
 for i=1:amount
-    subplot(amount,1,i);
+    subplot(1,amount,i);
     letternr = rescap2{i,1};
     position = rescap2{i,2};
     imshow(temps{1,letternr});
@@ -46,7 +46,7 @@ imshow(cap3);
 figure;
 amount = length(rescap3);
 for i=1:amount
-    subplot(amount,1,i);
+    subplot(1,amount,i);
     letternr = rescap3{i,1};
     position = rescap3{i,2};
     imshow(temps{1,letternr});

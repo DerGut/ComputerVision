@@ -2,6 +2,7 @@
 % use the Matlab function fft2). The result will be a complex matrix. 
 % Plot histograms for the amplitude and phase values.
 
+addpath 'images'
 dolly = imread('dolly.png');
 ftdolly = fft2(dolly);
 amplitude = abs(ftdolly);

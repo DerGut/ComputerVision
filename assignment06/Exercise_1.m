@@ -98,9 +98,9 @@ img = zeros(100, 100);
 
 for i = 0.1:0.01:2
     img = zeros(100, 100);
-    for i = 1:100
-        row = int8(i*i + i*30);
-        img(row,i) = 1;
+    for j = 1:100
+        row = int8(i*j + i*30);
+        img(row,int8(j+1)) = 1;
     end
     subplot(1,2,1)
     imshow(img);
@@ -109,7 +109,7 @@ for i = 0.1:0.01:2
     imshow(hough(img))
     title('Hough Transform')
     
-    pause(0.001)
+    pause(0.00001)
 end
 
 for i = 1:100
@@ -141,12 +141,36 @@ for i = 20:80
    img(i,80) = 1;
 end
 
-subplot(4,2,1)
+subplot(3,2,1)
 imshow(img)
-subplot(4,2,2)
+title('Square')
+subplot(3,2,2)
 imshow(hough(img))
 
+% Triangle
+img = zeros(100,100);
+for i = 20:80
+   img(80,i) = 1; 
+   img(i,i) = 1;
+   img(i,20) = 1;
+end
+
+
+subplot(3,2,3)
+imshow(img)
+title('Triangle')
+subplot(3,2,4)
+imshow(hough(img))
 
 % Circle
-img = zeros(100,100)
+img = zeros(100,100);
+r = 30;
+for t = linspace(0, 2*pi)
+    img( int8(50 + r * cos(t)), int8(50 + r * sin(t)) ) = 1;
+end
 
+subplot(3,2,5)
+imshow(img)
+title('Circle')
+subplot(3,2,6)
+imshow(hough(img))
